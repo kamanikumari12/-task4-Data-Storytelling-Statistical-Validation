@@ -1,95 +1,124 @@
 # -task4-Data-Storytelling-Statistical-Validation
-## 📌 Executive Overview
-This repository contains the complete deliverables for **Task 4: Data Storytelling & Statistical Validation**. The objective of this project is to synthesize data analytics findings into a structured business narrative and apply statistical hypothesis testing (Welch's Two-Sample T-Test) to validate whether a new website redesign layout leads to a statistically significant improvement in customer conversion rates.
+# 📊 Task 4 – Data Storytelling & Statistical Validation
+
+## Overview
+
+This project is the final phase of my Data Analytics Internship, where I transformed raw sales data into meaningful business insights using Data Storytelling and Statistical Validation.
+
+The objective was to combine previous data cleaning, exploratory data analysis (EDA), and dashboard findings into a clear business narrative and validate a key insight using a statistical test.
 
 ---
 
-## 🎯 Key Project Objectives
-1. **Craft a Business Narrative:** Structure analytical findings into a cohesive story featuring problem context, analysis, statistical validation, and a clear call to action (CTA).
-2. **Statistical Hypothesis Testing:** Formulate and execute an A/B testing framework to test the effectiveness of the new layout against the baseline control layout.
-3. **Executive Presentation Deck:** Produce a visual, concise slide deck (`presentation_deck.pdf`) suitable for stakeholder presentations.
-4. **Deliverable Package:** Provide documented python scripts, exported dataset summaries, and video outline guidelines.
+## Objectives
+
+- Analyze cleaned sales data to identify business insights.
+- Present findings through an engaging business story.
+- Validate a key finding using an Independent Two-Sample T-Test.
+- Provide actionable business recommendations.
 
 ---
 
-## 📊 A/B Testing & Statistical Methodology
+## Tools & Technologies
 
-### 1. Hypothesis Formulation
-* **Null Hypothesis ($H_0$):** $\mu_B - \mu_A = 0$  
-  *(The new website layout has no effect on user conversion rates.)*
-* **Alternative Hypothesis ($H_1$):** $\mu_B - \mu_A > 0$  
-  *(The new website layout leads to a statistically significant increase in conversion rates.)*
-
-### 2. Experimental Setup
-* **Control Group (Group A - Old Layout):** $N = 100$ cohorts, Baseline Conversion Mean $ pprox 9.80\%$ ($\sigma = 2.0\%$).
-* **Variant Group (Group B - New Layout):** $N = 100$ cohorts, Test Conversion Mean $ pprox 12.05\%$ ($\sigma = 2.0\%$).
-* **Significance Level ($ lpha$):** 0.05 (95% Confidence Level).
-* **Statistical Method:** Welch's Two-Sample Independent T-Test.
+- Python
+- Pandas
+- Matplotlib
+- SciPy
+- Jupyter Notebook
+- Microsoft PowerPoint
+- GitHub
 
 ---
 
-## 📈 Key Findings & Results Summary
+## Project Structure
 
-| Metric / Parameter | Group A (Old Layout) | Group B (New Layout) | Impact / Test Result |
-| :--- | :---: | :---: | :---: |
-| **Sample Size ($N$)** | 100 cohorts | 100 cohorts | 200 Total Batches |
-| **Mean Conversion Rate ($\mu$)** | **9.80%** | **12.05%** | **+2.25% Absolute Gain** |
-| **Relative Lift** | — | — | **+22.96% Lift** |
-| **T-Statistic ($t$)** | — | — | **$-7.8924$** |
-| **P-Value ($p$)** | — | — | **$2.87 	imes 10^{-13}$** ($p < 0.05$) |
-| **95% Confidence Interval** | — | — | **$[+1.69\%, +2.81\%]$** |
-| **Statistical Decision** | — | — | **REJECT $H_0$** |
-
-### Decision & Business Conclusion
-With $p < 0.0001$ well below our $ lpha = 0.05$ threshold, we **Reject the Null Hypothesis ($H_0$)**. The observed increase in conversion rate is statistically significant and highly unlikely to be the result of random variation.
-
-**Projected Financial Impact:**  
-Full rollout across 100% of website traffic is projected to generate **+$140,000 in incremental revenue** annually.
-
----
-
-## 📂 Repository File Structure
-
-```text
-.
-├── hypothesis_testing.py          # Python script executing Welch's T-Test & summary logic
-├── hypothesis_testing_results.csv # Tabular export of A/B test statistics and results
-├── presentation_deck.pdf          # 6-Slide Executive Presentation Deck (A4 Landscape)
-├── presentation_deck.html         # Source HTML styling template for PDF rendering
-└── README.md                      # Project documentation and summary report
+```
+Task4_DataStorytelling/
+│
+├── Cleaned_Data.xlsx
+├── task4_analysis.ipynb
+├── Task4_Professional_DarkBlue_Presentation.pptx
+├── Business_Summary.xlsx
+├── graphs/
+│   ├── monthly_sales.png
+│   ├── category_sales.png
+│   ├── city_sales.png
+│   └── top_products.png
+└── README.md
 ```
 
 ---
 
-## 🚀 How to Run the Analysis
+## Exploratory Data Analysis (EDA) Highlights
 
-### Prerequisites
-Ensure Python 3.8+ and required libraries are installed:
-```bash
-pip install numpy pandas scipy weasyprint
-```
-
-### 1. Execute Statistical Test Script
-Run `hypothesis_testing.py` to calculate metrics and print terminal logs:
-```bash
-python hypothesis_testing.py
-```
-
-### 2. Generate PDF Presentation Deck
-Run `weasyprint` to convert HTML template to PDF:
-```python
-from weasyprint import HTML
-HTML('presentation_deck.html').write_pdf('presentation_deck.pdf')
-```
+- Electronics generated the highest sales revenue.
+- Bangalore recorded the highest sales among all cities.
+- Monthly sales showed a positive growth trend.
+- A small number of top-selling products contributed significantly to total revenue.
 
 ---
 
-## 🎥 Stakeholder Presentation Guide (LinkedIn Video Outline)
-* **Duration:** 7–10 Minutes
-* **Target Audience:** Product Managers, Executive Leadership, Marketing Stakeholders
-* **Structure:**
-  1. **Intro (1 min):** Project background, business dilemma, target goal (11.00%).
-  2. **Data Story (2 mins):** User friction points identified on old checkout flow.
-  3. **Statistical Testing (3 mins):** Walkthrough of $t$-test methodology, $p$-value interpretation, and $95\%$ confidence interval.
-  4. **Recommendations & ROI (2 mins):** Full rollout strategy and $140k/year financial projection.
-  5. **Q&A Closing (1 min):** Final takeaway and wrap-up.
+## Business Story
+
+The analysis revealed that the business is experiencing steady growth, with Electronics emerging as the strongest-performing category. High-performing cities present opportunities for targeted marketing campaigns, while increasing inventory for best-selling products can further improve sales performance.
+
+---
+
+## Hypothesis Testing
+
+### Business Question
+
+**Do Electronics products generate higher sales than Fashion products?**
+
+### Hypotheses
+
+- **H₀ (Null Hypothesis):** There is no significant difference between Electronics and Fashion sales.
+- **H₁ (Alternative Hypothesis):** Electronics sales are significantly higher than Fashion sales.
+
+### Statistical Test
+
+- **Test Used:** Independent Two-Sample T-Test
+- **Library:** `scipy.stats.ttest_ind`
+
+### Example Result
+
+| Metric | Value |
+|--------|-------|
+| Test | Independent T-Test |
+| P-value | Less than 0.05 |
+| Conclusion | Statistically Significant |
+
+**Business Interpretation:** Since the p-value is below 0.05, the null hypothesis is rejected, indicating that Electronics sales are significantly higher than Fashion sales.
+
+---
+
+## Business Recommendations
+
+- Increase inventory for Electronics products.
+- Focus marketing efforts on high-performing cities like Bangalore.
+- Promote top-selling products through targeted campaigns.
+- Monitor monthly sales trends to support future business planning.
+
+---
+
+## Key Learnings
+
+- Data Cleaning and Preparation
+- Exploratory Data Analysis (EDA)
+- Business Storytelling
+- Hypothesis Testing using Python
+- Statistical Interpretation
+- Professional Presentation Skills
+- GitHub Project Documentation
+
+---
+
+## Author
+
+**Kamani Kumari**
+
+Data Analytics Internship – Task 4
+
+---
+
+⭐ If you found this project helpful, feel free to explore the repository and connect with me on LinkedIn.
